@@ -1,6 +1,6 @@
 Name:       zuul-swift-upload
 Version:    0.1
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    The zuul-swift-upload utility
 
 License:    ASL 2.0
@@ -18,6 +18,7 @@ Requires:   python-requests
 The zuul-swift-upload utility
 
 %prep
+sed -i 's/logging.info/print/' %{SOURCE0}
 
 %install
 install -p -D -m 0755 %{SOURCE0} %{buildroot}/usr/bin/zuul-swift-upload
@@ -26,6 +27,9 @@ install -p -D -m 0755 %{SOURCE0} %{buildroot}/usr/bin/zuul-swift-upload
 /usr/bin/zuul-swift-upload
 
 %changelog
+* Tue Apr 04 2017 Tristan Cacqueray - 0.1-3
+- Prints logurl instead of log.info
+
 * Tue Apr 04 2017 Tristan Cacqueray - 0.1-2
 - Requires python2-glob2 instead of python-glob2
 

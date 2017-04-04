@@ -1,6 +1,6 @@
 Name:       zuul-swift-upload
 Version:    0.1
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    The zuul-swift-upload utility
 
 License:    ASL 2.0
@@ -10,7 +10,7 @@ Source0:    https://raw.githubusercontent.com/openstack-infra/project-config/f91
 BuildArch:  noarch
 
 Requires:   python-magic
-Requires:   python-glob2
+Requires:   python2-glob2
 Requires:   python2-requestsexceptions
 Requires:   python-requests
 
@@ -26,5 +26,8 @@ install -p -D -m 0755 %{SOURCE0} %{buildroot}/usr/bin/zuul-swift-upload
 /usr/bin/zuul-swift-upload
 
 %changelog
+* Tue Apr 04 2017 Tristan Cacqueray - 0.1-2
+- Requires python2-glob2 instead of python-glob2
+
 * Thu Feb 23 2017 Tristan Cacqueray - 0.1-1
 - Initial package
